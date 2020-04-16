@@ -8,12 +8,34 @@
 
 import UIKit
 
-class ActivityCell: UICollectionViewCell {
+protocol LubaCellDelegate: AnyObject {
+    func didLongPress(_ lubaCell: LubaCell)
+}
+
+class LubaCell: UICollectionViewCell {
+    
+    weak var delegate: LubaCellDelegate?
+    
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(longPressAction(gesture:)))
+        return gesture
+    }()
+    @objc private func longPressAction(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            gesture.state = .cancelled
+            return
+        }
+        delegate?.didLongPress(self)
+    }
      public lazy var actionImage: UIImageView = {
             let image = UIImageView()
             image.image = UIImage(systemName: "person.fill")
             image.backgroundColor = .systemBackground
             image.contentMode = .scaleToFill
+        image.isUserInteractionEnabled = true
+            image.addGestureRecognizer(longPressGesture)
+        
             return image
         }()
         

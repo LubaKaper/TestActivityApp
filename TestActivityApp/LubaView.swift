@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AvtivityView: UIView {
+class LubaView: UIView {
 
    public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

@@ -12,9 +12,9 @@
 		8D8F30022447A4FE004FE95D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30012447A4FE004FE95D /* ViewController.swift */; };
 		8D8F30072447A500004FE95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8F30062447A500004FE95D /* Assets.xcassets */; };
 		8D8F300A2447A500004FE95D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8F30082447A500004FE95D /* LaunchScreen.storyboard */; };
-		8D8F30122447A557004FE95D /* AvtivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30112447A557004FE95D /* AvtivityView.swift */; };
-		8D8F30142447A580004FE95D /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30132447A580004FE95D /* ActivityCell.swift */; };
-		8D8F30162447A59B004FE95D /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30152447A59B004FE95D /* ActivityViewController.swift */; };
+		8D8F30122447A557004FE95D /* LubaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30112447A557004FE95D /* LubaView.swift */; };
+		8D8F30142447A580004FE95D /* LubaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30132447A580004FE95D /* LubaCell.swift */; };
+		8D8F30162447A59B004FE95D /* LubaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30152447A59B004FE95D /* LubaViewController.swift */; };
 		8D8F30182447E8A8004FE95D /* MediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30172447E8A8004FE95D /* MediaObject.swift */; };
 		8D8F301A2447EA0E004FE95D /* URL+VideoPreviewThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F30192447EA0E004FE95D /* URL+VideoPreviewThumbnail.swift */; };
 /* End PBXBuildFile section */
@@ -27,9 +27,9 @@
 		8D8F30062447A500004FE95D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8F30092447A500004FE95D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D8F300B2447A500004FE95D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D8F30112447A557004FE95D /* AvtivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvtivityView.swift; sourceTree = "<group>"; };
-		8D8F30132447A580004FE95D /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
-		8D8F30152447A59B004FE95D /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		8D8F30112447A557004FE95D /* LubaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LubaView.swift; sourceTree = "<group>"; };
+		8D8F30132447A580004FE95D /* LubaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LubaCell.swift; sourceTree = "<group>"; };
+		8D8F30152447A59B004FE95D /* LubaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LubaViewController.swift; sourceTree = "<group>"; };
 		8D8F30172447E8A8004FE95D /* MediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObject.swift; sourceTree = "<group>"; };
 		8D8F30192447EA0E004FE95D /* URL+VideoPreviewThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+VideoPreviewThumbnail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,9 +70,9 @@
 				8D8F30062447A500004FE95D /* Assets.xcassets */,
 				8D8F30082447A500004FE95D /* LaunchScreen.storyboard */,
 				8D8F300B2447A500004FE95D /* Info.plist */,
-				8D8F30112447A557004FE95D /* AvtivityView.swift */,
-				8D8F30132447A580004FE95D /* ActivityCell.swift */,
-				8D8F30152447A59B004FE95D /* ActivityViewController.swift */,
+				8D8F30112447A557004FE95D /* LubaView.swift */,
+				8D8F30132447A580004FE95D /* LubaCell.swift */,
+				8D8F30152447A59B004FE95D /* LubaViewController.swift */,
 				8D8F30172447E8A8004FE95D /* MediaObject.swift */,
 				8D8F30192447EA0E004FE95D /* URL+VideoPreviewThumbnail.swift */,
 			);
@@ -150,10 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8F30182447E8A8004FE95D /* MediaObject.swift in Sources */,
-				8D8F30122447A557004FE95D /* AvtivityView.swift in Sources */,
-				8D8F30162447A59B004FE95D /* ActivityViewController.swift in Sources */,
+				8D8F30122447A557004FE95D /* LubaView.swift in Sources */,
+				8D8F30162447A59B004FE95D /* LubaViewController.swift in Sources */,
 				8D8F30022447A4FE004FE95D /* ViewController.swift in Sources */,
-				8D8F30142447A580004FE95D /* ActivityCell.swift in Sources */,
+				8D8F30142447A580004FE95D /* LubaCell.swift in Sources */,
 				8D8F301A2447EA0E004FE95D /* URL+VideoPreviewThumbnail.swift in Sources */,
 				8D8F2FFE2447A4FE004FE95D /* AppDelegate.swift in Sources */,
 				8D8F30002447A4FE004FE95D /* SceneDelegate.swift in Sources */,

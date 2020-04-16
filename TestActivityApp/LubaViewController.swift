@@ -10,9 +10,9 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class ActivityViewController: UIViewController {
+class LubaViewController: UIViewController {
 
-   private let lubaView = AvtivityView()
+   private let lubaView = LubaView()
         
         override func loadView() {
             view = lubaView
@@ -52,7 +52,7 @@ class ActivityViewController: UIViewController {
         lubaView.collectionView.delegate = self
     }
     public func configureCellAndHeader() {
-        lubaView.collectionView.register(ActivityCell.self, forCellWithReuseIdentifier: "lubaCell")
+        lubaView.collectionView.register(LubaCell.self, forCellWithReuseIdentifier: "lubaCell")
         lubaView.collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView")
     }
     public func configureAddButton() {
@@ -81,13 +81,14 @@ class ActivityViewController: UIViewController {
 
     }
 
-    extension ActivityViewController: UICollectionViewDataSource {
+    extension LubaViewController: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return mediaObjects.count        }
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lubaCell", for: indexPath) as? ActivityCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lubaCell", for: indexPath) as? LubaCell else {
                 fatalError("could not downcast to LubaCell")
             }
+            cell.delegate = self
             let object = mediaObjects[indexPath.row]
             cell.configureCell(for: object)
             cell.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
@@ -103,7 +104,7 @@ class ActivityViewController: UIViewController {
         }
     }
 
-    extension ActivityViewController: UICollectionViewDelegateFlowLayout {
+    extension LubaViewController: UICollectionViewDelegateFlowLayout {
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height * 0.30)
@@ -121,7 +122,7 @@ class ActivityViewController: UIViewController {
         }
     }
 
-    extension ActivityViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    extension LubaViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             
             guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String else {
@@ -144,4 +145,31 @@ class ActivityViewController: UIViewController {
             picker.dismiss(animated: true)
             
         }
+}
+
+extension LubaViewController: LubaCellDelegate {
+    func didLongPress(_ lubaCell: LubaCell) {
+        print("cell was selected")
+        guard let indexPath = lubaView.collectionView.indexPath(for: lubaCell) else {
+            return
+        }
+        let alertController = UIAlertController(title: nil, message: "Delete and add something new?:)", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] (alertAction) in
+            self?.deleteObject(indxPath: indexPath)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    private func deleteObject(indxPath: IndexPath) {
+        //do {
+             mediaObjects.remove(at: indxPath.row)
+           // lubaView.collectionView.deleteItems(at: [indxPath])
+       // } catch {
+          //  print("error deleting object: \(error)")
+        //}
+    }
+    
+    
 }
